@@ -31,20 +31,17 @@ spec:
             - containerPort: 80
               protocol: TCP
           env:
-            - name: REACT_APP_KEYCLOAK_URL
+            - name: VITE_APP_KEYCLOAK_URL
+              value: https://keys.chewedfeed.com/realms/k8sdeploy
+            - name: VITE_APP_KEYCLOAK_CLIENT_ID
               valueFrom:
                 secretKeyRef:
-                  name: frontend-secrets
-                  key: keycloak-url
-            - name: REACT_APP_KEYCLOAK_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: frontend-secrets
+                  name: frontend-secrets-dev
                   key: keycloak-client-id
-            - name: REACT_APP_KEYCLOAK_CLIENT_SECRET
+            - name: VITE_APP_KEYCLOAK_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: frontend-secrets
+                  name: frontend-secrets-dev
                   key: keycloak-client-secret
             - name: REACT_APP_BACKEND_URL
               value: https://api.k8sdeploy.dev
