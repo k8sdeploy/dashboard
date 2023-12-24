@@ -18,6 +18,8 @@ COPY index.html .
 COPY postcss.config.js .
 COPY tailwind.config.js .
 COPY vite.config.ts .
+COPY .env.production .
+COPY .env.development .
 
 ARG CONTAINER_ENV=production
 RUN cp .env.${CONTAINER_ENV} .env
