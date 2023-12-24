@@ -28,23 +28,8 @@ spec:
         - name: frontend
           image: containers.chewed-k8s.net/k8sdeploy/dashboard:latest
           ports:
-            - containerPort: 5173
+            - containerPort: 80
               protocol: TCP
-          env:
-            - name: VITE_APP_KEYCLOAK_URL
-              value: https://keys.chewedfeed.com/realms/k8sdeploy
-            - name: VITE_APP_KEYCLOAK_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: frontend-secrets-dev
-                  key: keycloak-client-id
-            - name: VITE_APP_KEYCLOAK_CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: frontend-secrets-dev
-                  key: keycloak-client-secret
-            - name: REACT_APP_BACKEND_URL
-              value: https://api.k8sdeploy.dev
 ---
 apiVersion: v1
 kind: Service
@@ -58,7 +43,7 @@ spec:
   ports:
     - port: 80
       protocol: TCP
-      targetPort: 5173
+      targetPort: 80
   selector:
     app: dashboard
 
