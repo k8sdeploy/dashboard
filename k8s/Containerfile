@@ -4,6 +4,8 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="${PNPM_HOME}/bin:${PATH}"
 RUN corepack enable
 
+ARG CONTAINER_ENV=production
+
 # Copy Files
 WORKDIR /frontend
 COPY package*.json .
@@ -21,7 +23,6 @@ COPY vite.config.ts .
 COPY .env.production .
 COPY .env.development .
 
-ARG CONTAINER_ENV=production
 RUN cp .env.${CONTAINER_ENV} .env
 
 # Build
