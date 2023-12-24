@@ -27,7 +27,7 @@ deploy:
 	kubectl set image deployment/${SERVICE_NAME} ${SERVICE_NAME}=containers.chewed-k8s.net/${NAMESPACE}/${SERVICE_NAME}:${GIT_COMMIT} --namespace=${NAMESPACE}
 
 .PHONY: deploy-dev
-deploy-beta: publish-images
+deploy-dev: publish-images
 	kubectl set image deployment/${SERVICE_NAME} ${SERVICE_NAME}=containers.chewed-k8s.net/${NAMESPACE}/${SERVICE_NAME}:${GIT_COMMIT} --namespace=${NAMESPACE}-dev
 
 .PHONY: deploy-latest
