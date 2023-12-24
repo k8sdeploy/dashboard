@@ -4,7 +4,7 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="${PNPM_HOME}/bin:${PATH}"
 RUN corepack enable
 
-ARG CONTAINER_ENV=production
+ARG CONTAINER_ENV
 
 # Copy Files
 WORKDIR /frontend
@@ -20,7 +20,7 @@ COPY index.html .
 COPY postcss.config.js .
 COPY tailwind.config.js .
 COPY vite.config.ts .
-COPY .env .
+COPY .env.${CONTAINER_ENV} .env
 
 
 # Build
