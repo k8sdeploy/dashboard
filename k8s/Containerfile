@@ -31,7 +31,11 @@ RUN --mount=type=cache,target=/pnpm \
 FROM base AS build
 RUN --mount=type=cache,target=/pnpm \
   pnpm install --frozen-lockfile
-RUN pnpm build
+RUN if [ "$CONTAINER_ENV" = "production" ]; then \
+    pnpm build:prod; \
+  else \
+    pnpm build; \
+  fi
 
 # Runner
 FROM containers.chewed-k8s.net/docker_hub_cache/library/nginx:1.25-alpine AS runner
