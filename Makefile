@@ -11,7 +11,7 @@ build-images: ## Build the images
 
 .PHONY: build-development-images
 build-development-images: ## Build the images
-	nerdctl build --platform=amd64,arm64 --tag containers.chewed-k8s.net/${NAMESPACE}/${SERVICE_NAME}:${GIT_COMMIT} --build-arg VERSION=0.1 --build-arg BUILD=${GIT_COMMIT} --build-arg SERVICE_NAME=${SERVICE_NAME} --build-arg CONTAINER_ENV=development -f ./k8s/Containefile .
+	nerdctl build --platform=amd64,arm64 --tag containers.chewed-k8s.net/${NAMESPACE}/${SERVICE_NAME}:${GIT_COMMIT} --build-arg VERSION=0.1 --build-arg BUILD=${GIT_COMMIT} --build-arg SERVICE_NAME=${SERVICE_NAME} --build-arg CONTAINER_ENV=development -f ./k8s/Containerfile .
 	nerdctl tag containers.chewed-k8s.net/${NAMESPACE}/${SERVICE_NAME}:${GIT_COMMIT} containers.chewed-k8s.net/${NAMESPACE}/${SERVICE_NAME}:latest
 
 .PHONY: publish-images

@@ -1,5 +1,5 @@
 # Base
-FROM containers.chewed-k8s.net/docker_hub_cache/library/node:20-alpine AS base
+FROM containers.chewed-k8s.net/docker_hub_cache/library/node:21-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="${PNPM_HOME}/bin:${PATH}"
 RUN corepack enable
