@@ -43,9 +43,9 @@ const signinCallback = (_user: User | void) => {
 }
 
 export const oidcConfig = {
-  authority: import.meta.env.VITE_APP_KEYCLOAK_URL,
-  client_id: import.meta.env.VITE_APP_KEYCLOAK_CLIENT_ID,
-  client_secret: import.meta.env.VITE_APP_KEYCLOAK_CLIENT_SECRET,
+  authority: import.meta.env.VITE_KEYCLOAK_URL,
+  client_id: import.meta.env.VITE_KEYCLOAK_CLIENT_ID,
+  client_secret: import.meta.env.VITE_KEYCLOAK_CLIENT_SECRET,
 
   redirect_uri: window.location.origin,
   onSigninCallback: signinCallback,
