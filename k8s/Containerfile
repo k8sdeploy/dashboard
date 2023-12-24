@@ -20,7 +20,7 @@ COPY tailwind.config.js .
 COPY vite.config.ts .
 
 ARG CONTAINER_ENV=production
-RUN cp .env.${CONTAINER_ENV} .env
+RUN cp .env .
 
 # Build
 FROM base AS build
