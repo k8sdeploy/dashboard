@@ -26,7 +26,6 @@ RUN if [ -f .env.${CONTAINER_ENV} ]; then cp .env.${CONTAINER_ENV} .env; fi
 FROM base AS build
 RUN --mount=type=cache,target=/pnpm \
   pnpm install --frozen-lockfile
-RUN cat .env
 RUN if [ "$CONTAINER_ENV" = "production" ]; then \
     pnpm build:prod; \
   else \
