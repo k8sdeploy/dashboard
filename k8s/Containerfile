@@ -20,10 +20,8 @@ COPY index.html .
 COPY postcss.config.js .
 COPY tailwind.config.js .
 COPY vite.config.ts .
-COPY .env.production .
-COPY .env.development .
+COPY .env .
 
-RUN cp .env.${CONTAINER_ENV} .env
 
 # Build
 FROM base AS build
