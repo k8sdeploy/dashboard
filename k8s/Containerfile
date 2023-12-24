@@ -24,6 +24,7 @@ RUN if [ -f .env.${CONTAINER_ENV} ]; then cp .env.${CONTAINER_ENV} .env; fi
 
 # Install Dependencies
 FROM base AS dependencies
+RUN cat .env
 RUN --mount=type=cache,target=/pnpm \
   pnpm install --frozen-lockfile
 
