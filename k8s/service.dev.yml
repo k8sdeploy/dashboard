@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dashboard
-  namespace: k8sdeploy
+  namespace: k8sdeploy-dev
   labels:
     name: dashboard
     app: dashboard
@@ -35,7 +35,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: dashboard
-  namespace: k8sdeploy
+  namespace: k8sdeploy-dev
   labels:
     name: dashboard
     app: dashboard
@@ -52,7 +52,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: dashboard
-  namespace: k8sdeploy
+  namespace: k8sdeploy-dev
   annotations:
     cert-manager.io/cluster-issuer: live-issuer
     nginx.ingress.kubernetes.io/rewrite-target: /
