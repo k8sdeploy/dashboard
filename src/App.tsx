@@ -6,6 +6,7 @@ import '@/App.css'
 import {Layout} from "@/components/layout";
 import {Home} from "@/pages/home";
 import {Dashboard} from "@/pages/dashboard";
+import {Deployments} from "@/pages/Deployments";
 
 function App() {
   const auth = useAuth()
@@ -22,8 +23,11 @@ function App() {
         <Layout>
           <Routes>
             {givenName ? (
-              <Route path="/" element={<Dashboard />} />
-              ) : (
+              <>
+                <Route path="/" element={<Dashboard />} />
+                <Route path={"/deployments"} element={<Deployments />} />
+              </>
+            ) : (
               <Route path="/" element={<Home />} />
             )}
           </Routes>
